@@ -1,0 +1,4 @@
+﻿  linked_list.c
+c:\users\yaron\source\repos\c_lab_ex1\c_lab_ex1\linked_list.c(14): warning C4028: formal parameter 1 different from declaration
+c:\users\yaron\source\repos\c_lab_ex1\c_lab_ex1\linked_list.c(63): warning C4028: formal parameter 1 different from declaration
+  c_lab_ex1.vcxproj -> C:\Users\Yaron\source\repos\c_lab_ex1\Debug\c_lab_ex1.exe
