@@ -77,8 +77,8 @@ void print_list(List *list) {
 		printf("%d", current->value);
 		if (current->next != NULL) {
 			printf(", ");
-			current = current->next;
 		}
+		current = current->next;
 	}
 	printf("]\n");
 }

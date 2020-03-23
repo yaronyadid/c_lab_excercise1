@@ -1,8 +1,12 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include "linked_list.h"
+
+
 
 #define MAX_LINE_LENGTH 100
 #define DELIMITERS " \t\r\n"
@@ -20,26 +24,26 @@ void execute_command(List *list, char *command) {
 	int arg1, arg2;
 	char* command_name;
 	command_name = strtok(command, DELIMITERS);
-	string_tolower(command_name);
+	to_lower_string(command_name);
 	if (strcmp(command_name, "add_start") == 0) {
 		arg1 = atoi(strtok(NULL, DELIMITERS));
-		insert_first(list, arg1);
+		insert_at_start(list, arg1);
 	}
 	if (strcmp(command_name, "add_end") == 0) {
 		arg1 = atoi(strtok(NULL, DELIMITERS));
-		insert_last(list, arg1);
+		insert_at_end(list, arg1);
 	}
 	if (strcmp(command_name, "add_after") == 0) {
 		arg1 = atoi(strtok(NULL, DELIMITERS));
 		arg2 = atoi(strtok(NULL, DELIMITERS));
-		if (insert_after_element_first_occurrence(list, arg1, arg2) == -1) { // error - exit program
+		if (insert_after_element(list, arg1, arg2) == -1) { // error - exit program
 			free_list(list);
 			exit(1);
 		}
 	}
 	if (strcmp(command_name, "index") == 0) {
 		arg1 = atoi(strtok(NULL, DELIMITERS));
-		printf("%d\n", get_element_first_index(list, arg1));
+		printf("%d\n", get_first_index_by_value(list, arg1));
 	}
 	if (strcmp(command_name, "del") == 0) {
 		arg1 = atoi(strtok(NULL, DELIMITERS));

@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{44E09A3C-B509-475A-9A21-56CD7BBFCDEF}</ProjectGuid>
-    <RootNamespace>ex1</RootNamespace>
+    <ProjectGuid>{FAE2F0F2-E821-40BA-A1A2-75E0D2D4396D}</ProjectGuid>
+    <RootNamespace>clabexcercise1</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,11 +138,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\c_lab_excercise1\command_executer.c" />
-    <ClCompile Include="..\..\..\..\c_lab_excercise1\linked_list.c" />
+    <ClCompile Include="..\..\command_executer.c" />
+    <ClCompile Include="..\..\linked_list.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\c_lab_excercise1\linked_list.h" />
+    <ClInclude Include="..\..\linked_list.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
