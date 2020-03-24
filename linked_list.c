@@ -36,18 +36,18 @@ void insert_at_end(List *list, int value) {
 /* the element is inserted after the first occurrence of the specified element in the list. 
    if no such element exists, -1 is returned */
 int  insert_after_element(List *list, int value_to_insert, int value_to_insert_after) {
-	Node* traverse_node = list->head;
+	Node* current = list->head;
 	Node* node_to_insert = new_node(value_to_insert);
-	while (traverse_node != NULL) {
-		if (traverse_node->value == value_to_insert_after) {
-			node_to_insert->next = traverse_node->next;
-			traverse_node->next = node_to_insert;
-			if (traverse_node == list->tail) {
+	while (current != NULL) {
+		if (current->value == value_to_insert_after) {
+			node_to_insert->next = current->next;
+			current->next = node_to_insert;
+			if (current == list->tail) {
 				list->tail = node_to_insert;
 			}
 			return 0;
 		}
-		traverse_node = traverse_node->next;
+		current = current->next;
 	}
 
 	printf("Element %d is not in list\n", value_to_insert_after);
@@ -58,12 +58,12 @@ int  insert_after_element(List *list, int value_to_insert, int value_to_insert_a
 /* if the element isn't found, -1 is returned */
 int get_first_index_by_value(List *list, int value) {
 	int index = 0;
-	Node* traverse_node = list->head;
-	while (traverse_node != NULL) {
-		if (traverse_node->value == value) {
+	Node* current = list->head;
+	while (current != NULL) {
+		if (current->value == value) {
 			return index;
 		}
-		traverse_node = traverse_node->next;
+		current = current->next;
 		index++;
 	}
 	return -1;
@@ -72,30 +72,30 @@ int get_first_index_by_value(List *list, int value) {
 
 void print_list(List *list) {
 	printf("[");
-	Node* traverse_node = list->head;
-	while (traverse_node != NULL) {
-		printf("%d", traverse_node->value);
-		if (traverse_node->next != NULL) {
+	Node* current = list->head;
+	while (current != NULL) {
+		printf("%d", current->value);
+		if (current->next != NULL) {
 			printf(", ");
 		}
-		traverse_node = traverse_node->next;
+		current = current->next;
 	}
 	printf("]\n");
 }
 
 void free_list(List *list) {
-	Node* traverse_node;
+	Node* current;
 	while (list->head != NULL) {
-		traverse_node = list->head;
+		current = list->head;
 		list->head = list->head->next;
-		free(traverse_node);
+		free(current);
 	}
 }
 
 int remove_element_at_index(List *list, int index) {
-	Node* traverse_node = list->head;
+	Node* current = list->head;
 	Node* node_to_remove;
-	int traverse_node_index = 0;
+	int current_index = 0;
 	if (list->head == NULL) {
 		printf("Specified index is too large\n");
 		return -1;
@@ -106,19 +106,19 @@ int remove_element_at_index(List *list, int index) {
 		free(node_to_remove);
 		return 0;
 	}
-	while (traverse_node != NULL) {
-		if (traverse_node == (index-1)) {
-			if (traverse_node->next == NULL) {
+	while (current != NULL) {
+		if (current_index == (index-1)) {
+			if (current->next == NULL) {
 				printf("Specified index is too large\n");
 				return -1;
 			}
-			node_to_remove = traverse_node->next;
-			traverse_node->next = traverse_node->next->next;
+			node_to_remove = current->next;
+			current->next = current->next->next;
 			free(node_to_remove);
 			return 0;
 		}
-		traverse_node = traverse_node->next;
-		traverse_node_index++;
+		current = current->next;
+		current_index++;
 	}
 	printf("Specified index is too large\n");
 	return -1;

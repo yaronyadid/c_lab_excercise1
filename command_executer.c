@@ -8,7 +8,7 @@
 
 
 
-#define MAX_INPUT_LINE_LENGTH 100
+#define MAX_LINE_LENGTH 100
 #define DELIMITERS " \t\r\n"
 
 void to_lower_string(char *input) {
@@ -66,8 +66,8 @@ int main() {
 	List* list = malloc(sizeof(List));
 	list->head = NULL;
 	list->tail = NULL;
-	char command[MAX_INPUT_LINE_LENGTH];
-	while (fgets(command, MAX_INPUT_LINE_LENGTH, stdin) != NULL) {
+	char command[MAX_LINE_LENGTH];
+	while (fgets(command, MAX_LINE_LENGTH, stdin) != NULL) {
 		execute_command(list, command);
 	}
 	return 0;
