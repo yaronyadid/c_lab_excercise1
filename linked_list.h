@@ -12,6 +12,7 @@ typedef struct list {
 	Node *tail;
 }List;
 
+Node *new_node(int value);
 void insert_at_start(List *list, int value);
 void insert_at_end(List *list, int value);
 void print_list(List *list);
